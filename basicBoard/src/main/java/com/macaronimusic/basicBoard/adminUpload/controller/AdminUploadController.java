@@ -18,20 +18,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.macaronimusic.basicBoard.adminUpload.dto.adminUploadDTO;
+import com.macaronimusic.basicBoard.adminUpload.dto.AdminUploadDTO;
+import com.macaronimusic.basicBoard.adminUpload.service.AdminUploadService;
+
+import lombok.RequiredArgsConstructor;
+
 
 @Controller
+@RequiredArgsConstructor
 public class AdminUploadController {
 
+	private final AdminUploadService adminUploadService;
+	
 	@GetMapping("/admin-upload")
 	public String adminUpload() {
-		return "adminUpload";
+		return "AdminUpload";
 	}
 
-	@PostMapping("admin-upload/uploadexcel")
+	@PostMapping("/admin-upload")
 	public String readExcel(@RequestParam("file") MultipartFile file, Model model) throws IOException {
 
-		List<adminUploadDTO> dataList = new ArrayList<>();
+		List<AdminUploadDTO> dataList = new ArrayList<>();
 
 		String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 
@@ -53,7 +60,7 @@ public class AdminUploadController {
 
 			Row row = worksheet.getRow(i);
 
-			adminUploadDTO data = new adminUploadDTO();
+			AdminUploadDTO data = new AdminUploadDTO();
 			String data_exist = "";
 
 			// 마지막 행 확인
@@ -73,7 +80,7 @@ public class AdminUploadController {
 			data.setArranger(row.getCell(6).getStringCellValue());
 			data.setAlbum(row.getCell(7).getStringCellValue());
 			data.setPlaytime(row.getCell(8).getStringCellValue());
-			data.setFilename(row.getCell(9).getStringCellValue());
+			data.setFile_name(row.getCell(9).getStringCellValue());
 
 			// row.getCell(0).getCellType() == 3 셀의 데이터 유형이 BLANK임
 			if (row.getCell(0).getCellType() == 3 || row.getCell(1).getCellType() == 3
@@ -84,12 +91,14 @@ public class AdminUploadController {
 			} else {
 				dataList.add(data);
 			}
+			
+			adminUploadService.save(data);
 
 		}
 
 		model.addAttribute("datas", dataList);
 
-		return "excelList";
+		return "ExcelList";
 
 	}
 }
