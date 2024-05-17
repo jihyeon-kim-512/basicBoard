@@ -1,4 +1,4 @@
-package com.macaronimusic.basicBoard.home.web;
+package com.macaronimusic.basicBoard.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.macaronimusic.basicBoard.adminUpload.web;
+package com.macaronimusic.basicBoard.adminUpload.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
