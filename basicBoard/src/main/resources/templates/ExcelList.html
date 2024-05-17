@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <title>Title</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+	<table class="table table-striped">
+		<tbody>
+			<tr th:each="data : ${datas}">
+				<td th:text="${data.title}"></td>
+				<td th:text="${data.artist}"></td>
+				<td th:text="${data.vocal}"></td>
+				<td th:text="${data.featuring}"></td>
+				<td th:text="${data.composer}"></td>
+				<td th:text="${data.lyricist}"></td>
+				<td th:text="${data.arranger}"></td>
+				<td th:text="${data.album}"></td>
+				<td th:text="${data.playtime}"></td>
+				<td th:text="${data.file_name}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
