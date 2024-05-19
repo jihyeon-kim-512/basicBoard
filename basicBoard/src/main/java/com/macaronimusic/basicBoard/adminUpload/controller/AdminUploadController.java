@@ -23,13 +23,12 @@ import com.macaronimusic.basicBoard.adminUpload.service.AdminUploadService;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Controller
 @RequiredArgsConstructor
 public class AdminUploadController {
 
 	private final AdminUploadService adminUploadService;
-	
+
 	@GetMapping("/admin-upload")
 	public String adminUpload() {
 		return "AdminUpload";
@@ -71,6 +70,7 @@ public class AdminUploadController {
 			if (data_exist.equals(""))
 				break;
 
+			// dto와 entity 따로 저장하는 방법 말고 다른 방법은?
 			data.setTitle(row.getCell(0).getStringCellValue());
 			data.setArtist(row.getCell(1).getStringCellValue());
 			data.setVocal(row.getCell(2).getStringCellValue());
@@ -87,11 +87,15 @@ public class AdminUploadController {
 					|| row.getCell(2).getCellType() == 3 || row.getCell(4).getCellType() == 3
 					|| row.getCell(5).getCellType() == 3 || row.getCell(7).getCellType() == 3) {
 				continue;
+				// 유효성 검사 후 처리 방법 생각하기
+				// 전체 취소? 오류 행 개수 출력?
 
 			} else {
 				dataList.add(data);
+				// DB 저장 전에 중복 확인 필요
+				// 업데이트 할 것인지? 저장하지 않을 것인지
 			}
-			
+
 			adminUploadService.save(data);
 
 		}
