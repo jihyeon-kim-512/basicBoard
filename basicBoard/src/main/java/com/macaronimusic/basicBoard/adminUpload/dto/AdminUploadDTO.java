@@ -25,21 +25,20 @@ public class AdminUploadDTO {
 	private String playtime;
 	private String file_name;
 
-	public static AdminUploadDTO toAdminUploadDTO(AdminUploadEntity adminUploadEntity) {
-		AdminUploadDTO adminUploadDTO = new AdminUploadDTO();
-		adminUploadDTO.setId(adminUploadEntity.getId());
-		adminUploadDTO.setTitle(adminUploadEntity.getTitle());
-		adminUploadDTO.setArtist(adminUploadEntity.getArtist());
-		adminUploadDTO.setVocal(adminUploadEntity.getVocal());
-		adminUploadDTO.setFeaturing(adminUploadEntity.getFeaturing());
-		adminUploadDTO.setComposer(adminUploadEntity.getComposer());
-		adminUploadDTO.setLyricist(adminUploadEntity.getLyricist());
-		adminUploadDTO.setArranger(adminUploadEntity.getArranger());
-		adminUploadDTO.setAlbum(adminUploadEntity.getAlbum());
-		adminUploadDTO.setPlaytime(adminUploadEntity.getPlaytime());
-		adminUploadDTO.setFile_name(adminUploadEntity.getFile_name());
+	public static AdminUploadEntity toAdminUploadEntity(AdminUploadDTO adminUploadDTO) {
+		AdminUploadEntity adminUploadEntity = new AdminUploadEntity();
+		adminUploadEntity.setTitle(adminUploadDTO.getTitle());
+		adminUploadEntity.setArtist(adminUploadDTO.getArtist());
+		adminUploadEntity.setVocal(adminUploadDTO.getVocal());
+		adminUploadEntity.setFeaturing(adminUploadDTO.getFeaturing());
+		adminUploadEntity.setComposer(adminUploadDTO.getComposer());
+		adminUploadEntity.setLyricist(adminUploadDTO.getLyricist());
+		adminUploadEntity.setArranger(adminUploadDTO.getArranger());
+		adminUploadEntity.setAlbum(adminUploadDTO.getAlbum());
+		adminUploadEntity.setPlaytime(adminUploadDTO.getPlaytime());
+		adminUploadEntity.setFile_name(adminUploadDTO.getFile_name());
 
-		return adminUploadDTO;
+		return adminUploadEntity;
 	}
 
 }

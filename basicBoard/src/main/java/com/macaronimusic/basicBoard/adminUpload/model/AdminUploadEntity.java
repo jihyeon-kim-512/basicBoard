@@ -1,7 +1,5 @@
 package com.macaronimusic.basicBoard.adminUpload.model;
 
-import com.macaronimusic.basicBoard.adminUpload.dto.AdminUploadDTO;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,22 +37,5 @@ public class AdminUploadEntity {
 	private String playtime;
 	@Column
 	private String file_name;
-
-	public static AdminUploadEntity toAdminUploadEntity(AdminUploadDTO adminUploadDTO) {
-		AdminUploadEntity adminUploadEntity = new AdminUploadEntity();
-		adminUploadEntity.setId(adminUploadDTO.getId());
-		adminUploadEntity.setTitle(adminUploadDTO.getTitle());
-		adminUploadEntity.setArtist(adminUploadDTO.getArtist());
-		adminUploadEntity.setVocal(adminUploadDTO.getVocal());
-		adminUploadEntity.setFeaturing(adminUploadDTO.getFeaturing());
-		adminUploadEntity.setComposer(adminUploadDTO.getComposer());
-		adminUploadEntity.setLyricist(adminUploadDTO.getLyricist());
-		adminUploadEntity.setArranger(adminUploadDTO.getArranger());
-		adminUploadEntity.setAlbum(adminUploadDTO.getAlbum());
-		adminUploadEntity.setPlaytime(adminUploadDTO.getPlaytime());
-		adminUploadEntity.setFile_name(adminUploadDTO.getFile_name());
-
-		return adminUploadEntity;
-	}
 
 }
