@@ -37,7 +37,7 @@ public class RankingService {
 			for (Element el : els) {
 
 				RankingEntity data = new RankingEntity();
-				data.setTitle(el.select("td:nth-child(6) > div > div > div.ellipsis.rank01 > a").text());
+				data.setTitle(el.select("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text());
 				data.setArtist(el.select("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text());
 				data.setAlbum(el.select("td:nth-child(7) > div > div > div > a").text());
 				data.setRanking(rankCnt);
