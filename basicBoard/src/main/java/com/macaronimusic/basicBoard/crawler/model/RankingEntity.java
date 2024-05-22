@@ -26,7 +26,7 @@ public class RankingEntity {
 	private Integer ranking;
 	@Column
 	private String album;
-	@Column
-	private String rank_time;
+	@Column(name="rank_time")
+    private String rankTime;
 
 }

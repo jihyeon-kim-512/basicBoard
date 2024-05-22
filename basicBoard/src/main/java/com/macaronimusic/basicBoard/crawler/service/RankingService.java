@@ -43,7 +43,7 @@ public class RankingService {
 				data.setRanking(rankCnt);
 				LocalDateTime now = LocalDateTime.now();
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:00:00");
-				data.setRank_time(now.format(formatter)); // ranking 기준 시간
+				data.setRankTime(now.format(formatter)); // ranking 기준 시간
 
 				dataList.add(data);
 				rankingRepository.save(data);
