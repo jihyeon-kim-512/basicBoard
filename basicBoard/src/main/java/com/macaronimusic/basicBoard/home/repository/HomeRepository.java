@@ -8,5 +8,5 @@ import com.macaronimusic.basicBoard.crawler.model.RankingEntity;
 
 
 public interface HomeRepository extends JpaRepository<RankingEntity, Long> {
-	List<RankingEntity> findAll();
+	List<RankingEntity> findByrankTimeOrderByRankingAsc(String rankTime);
 }
